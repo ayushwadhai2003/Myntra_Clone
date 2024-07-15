@@ -1,10 +1,17 @@
 import './App.css'
+import HomePage from './Pages/HomePage'
+import LoginPage from './Pages/LoginPage'
 function App() {
+
+    const isUserLoggedIn = true
 
     return (
         <div>
-            <h1 className='text-blue-500 text-2xl'>Myntra Clone</h1>
-            <p>Creater Ayush</p>
+            {
+                isUserLoggedIn ?
+                    <HomePage /> :
+                    <LoginPage />
+            }
         </div>
     )
 }
