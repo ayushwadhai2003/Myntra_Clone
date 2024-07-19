@@ -1,4 +1,3 @@
-import { border } from '@mui/system';
 import React from 'react'
 import { CiSearch } from 'react-icons/ci';
 function FilterOptions() {

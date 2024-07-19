@@ -23,7 +23,7 @@ function Header() {
                     <p className='text-xs font-bold text-slate-700 p-5 py-8 border-b-4 border-white hover:cursor-pointer hover:border-b-teal-900  transition duration-200 '>STUDIO</p>
                 </div>
             </div>
-
+  
             {/* right */}
             <div className='flex flex-row items-center mr-16'>
                 <div className='flex flex-row items-center'>

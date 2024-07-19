@@ -8,7 +8,7 @@ function ErrorPage() {
             <h1
                 className='text-lg text-blue-400 hover:cursor-pointer hover:underline hover:text-red-500'
                 onClick={() => window.history.back()}
-            >
+            > 
                 Go Back
             </h1>
         </div>
