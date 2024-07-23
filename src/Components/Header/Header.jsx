@@ -1,29 +1,70 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { FaRegUser } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { ImSearch } from "react-icons/im";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { useSelector } from 'react-redux';
 
 function Header() {
-    return (
-        <div className='w-screen flex flex-row items-center justify-between shadow-md'>
-            {/* left */}
-            <div className='flex flex-row items-center ml-16'>
-                <img
-                    src="../../public/Images/Myntra-icon-logo2.png"
-                    alt="loding..."
-                    className='w-12' />
 
-                <div className='flex flex-row items-center w-[670px] ml-10 '>
-                    <p className='text-xs font-bold text-slate-700 p-5 py-8  border-b-4 border-white hover:cursor-pointer hover:border-b-red-700  transition duration-200 '>MEN</p>
-                    <p className='text-xs font-bold text-slate-700 p-5 py-8 border-b-4 border-white hover:cursor-pointer hover:border-b-pink-600 transition duration-200 '>WOMWN</p>
-                    <p className='text-xs font-bold text-slate-700 p-5 py-8 border-b-4 border-white hover:cursor-pointer hover:border-b-orange-500  transition duration-200 '>KIDS</p>
-                    <p className='text-xs font-bold text-slate-700 p-5 py-8 border-b-4 border-white hover:cursor-pointer hover:border-b-yellow-500  transition duration-200 '>HOME & LIVING</p>
-                    <p className='text-xs font-bold text-slate-700 p-5 py-8 border-b-4 border-white hover:cursor-pointer hover:border-b-green-600  transition duration-200 '>BEAUTY</p>
-                    <p className='text-xs font-bold text-slate-700 p-5 py-8 border-b-4 border-white hover:cursor-pointer hover:border-b-teal-900  transition duration-200 '>STUDIO</p>
+    const numberOfItemsInBag = useSelector((state) => state.bag.noOfItemsInBag)
+
+    return (
+        <div className='w-screen flex flex-row items-center justify-between shadow-md px-10'>
+            {/* left */}
+            <div className='flex flex-row items-center'>
+                <Link to={'/home'}>
+                    <img
+                        src="../../public/Images/Myntra-icon-logo2.png"
+                        alt="loding..."
+                        className='w-12'
+                    />
+                </Link>
+
+                <div className='hidden md:flex flex-row items-center w-[670px] ml-10 '>
+                    <div className='relative group'>
+                        <p className='text-xs font-bold text-slate-700 p-5 py-8  border-b-4 border-white hover:cursor-pointer hover:border-b-red-600  transition duration-200 '>MEN</p>
+                        <div className=' absolute bg-white z-50 p-10 hidden group-hover:flex flex-col'>
+                            <div>
+                                <h4>Topwear</h4>
+                                <p>T-Shirts</p>
+                                <p>Casual Shirts</p>
+                                <p>Formal Shirts</p>
+                                <p>Sweatshirts</p>
+                                <p>Sweaters</p>
+                                <p>Jackets</p>
+                                <p>Blazers & Coats</p>
+                                <p>Suits</p>
+                                <p>Rain Jackets</p>
+                            </div>
+                            <div>
+                                <h4>Indian & Festive Wear</h4>
+                                <p>Kurtas & Kueta Sets</p>
+                                <p>Sherwanis</p>
+                                <p>Nehru Jackets</p>
+                                <p>Dhotis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p className='text-xs font-bold text-slate-700 p-5 py-8 border-b-4 border-white hover:cursor-pointer hover:border-b-pink-600 transition duration-200 '>WOMWN</p>
+                    </div>
+                    <div>
+                        <p className='text-xs font-bold text-slate-700 p-5 py-8 border-b-4 border-white hover:cursor-pointer hover:border-b-purple-600  transition duration-200 '>KIDS</p>
+                    </div>
+                    <div>
+                        <p className='text-xs font-bold text-slate-700 p-5 py-8 border-b-4 border-white hover:cursor-pointer hover:border-b-blue-600  transition duration-200 '>HOME & LIVING</p>
+                    </div>
+                    <div>
+                        <p className='text-xs font-bold text-slate-700 p-5 py-8 border-b-4 border-white hover:cursor-pointer hover:border-b-green-600  transition duration-200 '>BEAUTY</p>
+                    </div>
+                    <div>
+                        <p className='text-xs font-bold text-slate-700 p-5 py-8 border-b-4 border-white hover:cursor-pointer hover:border-b-orange-600  transition duration-200 '>STUDIO</p>
+                    </div>
                 </div>
             </div>
-  
+
             {/* right */}
             <div className='flex flex-row items-center mr-16'>
                 <div className='flex flex-row items-center'>
@@ -31,26 +72,55 @@ function Header() {
                         <ImSearch className='text-gray-500' />
                     </div>
                     <input type="text" placeholder='Search for products, brands and more'
-                        className='w-[400px] h-10 mr-14 bg-gray-100 rounded-ee-xl text-sm pl-3'
+                        className='w-[400px] h-10 mr-14 bg-gray-100 rounded-ee-xl text-sm pl-3 focus:outline-none'
                     />
                 </div>
 
                 <div className='flex flex-row items-center'>
-                    <div className='flex flex-col items-center hover:cursor-pointer border-b-4 border-white hover:border-b-red-700 transition duration-200 px-3 py-6 relative group'>
+                    <div className='flex flex-col items-center border-b-4 border-white hover:border-b-rose-500 transition duration-400 px-3 py-[24px] relative group'>
                         <FaRegUser className='text-sm text-gray-600' />
                         <p className='text-xs font-bold'>Profile</p>
-                        <div className='absolute  bg-white border-2 top-[85px] hidden group-hover:flex'>
-                            <p>WELCOME</p>
+                        <div className='absolute  bg-white border-2 top-[82px] hidden group-hover:flex w-[290px] transition duration-500 z-50'>
+                            <div className='p-5'>
+                                <div className='w-60 border-b-2 text-slate-700'>
+                                    <p className='text-sm font-bold text-slate-700'>Welcome</p>
+                                    <p className='text-sm text-slate-700'>To access account and manage orders</p>
+                                    <div className='w-36 mt-3 mb-4 py-2 px-4 border-2 border-slate-200 hover:border-rose-500 hover:cursor-pointer rounded-l-sm rounded-r-sm'>
+                                        <p className='text-[13.5px] font-bold text-rose-500'>LOGIN / SINGUP</p>
+                                    </div>
+                                </div>
+
+                                <div className='text-[13.5px] text-slate-700 mt-3 mb-3 pb-3 border-b-2'>
+                                    <p className='mt-1 hover:cursor-pointer hover:text-slate-700 hover:font-semibold'>Orders</p>
+                                    <p className='mt-1 hover:cursor-pointer hover:text-slate-700 hover:font-semibold'>Wishlist</p>
+                                    <p className='mt-1 hover:cursor-pointer hover:text-slate-700 hover:font-semibold'>Gift Cards</p>
+                                    <p className='mt-1 hover:cursor-pointer hover:text-slate-700 hover:font-semibold'>Contact Us</p>
+                                    <p className='mt-1 hover:cursor-pointer hover:text-slate-700 hover:font-semibold'>Myntra Insider</p>
+                                </div>
+                                <div className='text-[13.5px] text-slate-700'>
+                                    <p className='mt-1 hover:cursor-pointer hover:text-slate-700 hover:font-semibold'>Myntra Credit</p>
+                                    <p className='mt-1 hover:cursor-pointer hover:text-slate-700 hover:font-semibold'>Coupons</p>
+                                    <p className='mt-1 hover:cursor-pointer hover:text-slate-700 hover:font-semibold'>Saved Cards</p>
+                                    <p className='mt-1 hover:cursor-pointer hover:text-slate-700 hover:font-semibold'>Saved VPA</p>
+                                    <p className='mt-1 hover:cursor-pointer hover:text-slate-700 hover:font-semibold z-10'>Saved Addresses</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className='flex flex-col items-center hover:cursor-pointer px-3 py-6'>
                         <FiHeart className='text-sm text-gray-600 ' />
                         <p className='text-xs font-bold'>Wishlist</p>
                     </div>
-                    <div className='flex flex-col items-center hover:cursor-pointer px-3 py-6'>
-                        <HiOutlineShoppingBag className='text-sm text-gray-600 ' />
-                        <p className='text-xs font-bold'>Bag</p>
-                    </div>
+                    <Link to={'/cart'}>
+                        <div className='flex flex-col items-center hover:cursor-pointer px-3 py-6 relative'>
+                            <HiOutlineShoppingBag className='text-sm text-gray-600 ' />
+                            <p className='text-xs font-bold'>Bag</p>
+                            {
+                                numberOfItemsInBag === 0 ||
+                                <p className='bg-red-600 text-sm font-bold p-0.5 rounded-full text-white absolute left-7 top-[6px]'>{numberOfItemsInBag}</p>
+                            }
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>
